@@ -1,25 +1,28 @@
-import logo from './logo.svg';
-import './App.css';
-
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+import Home from "./cmp/home";
+import Hotels from "./cmp/hotels";
+import Trains from "./cmp/trains";
+import Cabs from "./cmp/cabs";
+import Forex from "./cmp/forex";
+import Layout from "./cmp/layout";
+import Bus from "./cmp/bus";
+import {
+  BrowserRouter as Router,
+  Routes,
+  Route
+} from "react-router-dom";
+const App = () =>(
+  <Router>           
+    <Layout>
+      <Routes>
+        <Route exact path="/" element={<Home />} /> 
+        <Route exact path="/hotels" element={<Hotels />} /> 
+        <Route exact path="/trains" element={<Trains />} />
+        <Route exact path="/cabs" element={<Cabs />} />
+        <Route exact path="/bus" element={<Bus />} />
+        <Route exact path="/forex" element={<Forex />} />
+      </Routes>
+    </Layout>
+  </Router>
+)
 
 export default App;
