@@ -1,0 +1,32 @@
+[
+    {
+        "id":1,
+        "label":"Flights",
+        "path":"/",
+        "icon":"/icons/airplane-color.png"
+    },
+    {
+        "id":2,
+        "label":"Hotels",
+        "path":"/hotels",
+        "icon":"/icons/hotel-color.png"
+    },
+    {
+        "id":3,
+        "label":"Trains",
+        "path":"/trains",
+        "icon":"/icons/train-color.png"
+    },
+    {
+        "id":4,
+        "label":"Cabs",
+        "path":"/cabs",
+        "icon":"/icons/cab-color.png"
+    },
+    {
+        "id":5,
+        "label":"Bus",
+        "path":"/bus",
+        "icon":"/icons/bus-color.png"
+    }
+]
