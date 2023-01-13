@@ -5,9 +5,9 @@ import Home from "./cmp/home";
 import Hotels from "./cmp/hotels";
 import Trains from "./cmp/trains";
 import Cabs from "./cmp/cabs";
-import Forex from "./cmp/forex";
 import Bus from "./cmp/bus";
 import Trips from "./cmp/trips";
+import Flights from "./cmp/flights";
 import {
   BrowserRouter as Router,
   Routes,
@@ -18,11 +18,11 @@ const App = () =>(
     <Layout>
       <Routes>
         <Route exact path="/" element={<Home />} /> 
+        <Route exact path="/flights" element={<Flights />} /> 
         <Route exact path="/hotels" element={<Hotels />} /> 
         <Route exact path="/trains" element={<Trains />} />
         <Route exact path="/cabs" element={<Cabs />} />
         <Route exact path="/bus" element={<Bus />} />
-        <Route exact path="/forex" element={<Forex />} />
         <Route exact path="/mytrips" element={<Trips />} />
       </Routes>
     </Layout>

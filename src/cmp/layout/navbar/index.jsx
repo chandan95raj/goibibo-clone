@@ -1,12 +1,14 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Menu } from '@headlessui/react';
 import MenuItems from "./menu.json";
 const Navbar = () =>{
     const [dropdown,setDropdown] = useState('none');
     const [loginDropdown,setLoginDropdown] = useState('none');
+    const location = useLocation();
 return(
-    <div className="w-full bg-white shadow py-3 ">
+    <>
+    <div className="hidden md:block sm:hidden w-full bg-white shadow py-3 ">
         <div className="container mx-auto px-2 flex items-center justify-between">
             <div className="flex">
                 <Link to="/" className="mr-7">
@@ -15,9 +17,9 @@ return(
                 {
                     MenuItems.map((item,index)=>(
                         <Link to={item.path} key={index} className="mx-1">
-                            <button className="border py-1.5 px-4 font-semibold rounded-full bg-white text-[#777777] hover:bg-[#E8F3FF] transition duration-300">
+                            <button className={`border py-1.5 px-4 font-semibold rounded-full text-[#777777] hover:bg-[#E8F3FF] transition duration-300 ${item.path === location.pathname && 'bg-blue-600 text-[#fff] hover:bg-blue-600' || 'bg-white'}`}>
                                 <div className="flex items-center justify-center gap-1">
-                                    <img src={item.icon} width="18" height="18" alt={item.icon} />
+                                    {item.path === location.pathname && <img src={item.iconwhite} width="18" height="18" alt={item.icon} /> || <img src={item.icon} width="18" height="18" alt={item.icon} /> }
                                     {item.label}
                                 </div>
                             </button>
@@ -90,6 +92,50 @@ return(
                                         Login/Sign Up
                                     </button>
                                 </div>
+                                <div>
+                                    <button className="w-full border-b pb-1 text-left flex items-center">
+                                        <div className="mr-5">
+                                            <img src="/icons/tribe-small.png" width="20" height="20" alt="tribe-small" />
+                                        </div>
+                                        <div>
+                                            <img src="/icons/gotribe.png" width="50" height="18" alt="gotribe" />
+                                            <p className="text-[10px] text-[#4E525B]">Travel more to get enrolled!</p>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className="w-full border-b pb-1 text-left flex items-center">
+                                        <div className="mr-5">
+                                            <img src="/icons/offer-icon.png" width="20" height="20" alt="offer-icon" />
+                                        </div>
+                                        <div className="leading-4">
+                                            <p className="text-[14px] text-[#4E525B] font-semibold">Offers</p>
+                                            <p className="text-[10px] text-[#4E525B]">Handpicked best deals</p>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className="w-full border-b pb-1 text-left flex items-center">
+                                        <div className="mr-5">
+                                            <img src="/icons/suitcase.png" width="20" height="20" alt="suitcase" />
+                                        </div>
+                                        <div className="leading-4">
+                                            <p className="text-[14px] text-[#4E525B] font-semibold">My Trips</p>
+                                            <p className="text-[10px] text-[#4E525B]">Manage your bookings</p>
+                                        </div>
+                                    </button>
+                                </div>
+                                <div>
+                                    <button className="w-full pb-1 text-left flex items-center">
+                                        <div className="mr-5">
+                                            <img src="/icons/gocash-small.png" width="20" height="20" alt="gocash-small" />
+                                        </div>
+                                        <div className="leading-4">
+                                            <p className="text-[14px] text-[#4E525B] font-semibold">goCash</p>
+                                            <p className="text-[10px] text-[#4E525B]">Signup to get &#8377; 100 goCash</p>
+                                        </div>
+                                    </button>
+                                </div>
                             </div>
                         </div>                       
                     </Menu.Item>
@@ -98,6 +144,7 @@ return(
             </div>
         </div>        
     </div>
+    </>
 );
 }
 export default Navbar;
