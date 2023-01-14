@@ -11,3 +11,8 @@ body {
 code {
   font-family: "Quicksand", sans-serif;
 }
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 0px;
+}

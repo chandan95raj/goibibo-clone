@@ -17,9 +17,9 @@ return(
                 {
                     MenuItems.map((item,index)=>(
                         <Link to={item.path} key={index} className="mx-1">
-                            <button className={`border py-1.5 px-4 font-semibold rounded-full text-[#777777] hover:bg-[#E8F3FF] transition duration-300 ${item.path === location.pathname && 'bg-blue-600 text-[#fff] hover:bg-blue-600' || 'bg-white'}`}>
+                            <button className={`border py-1.5 px-4 font-semibold rounded-full hover:bg-[#E8F3FF] transition duration-300 ${item.path === location.pathname ? 'bg-blue-600 text-[#fff] hover:bg-blue-600' : 'text-[#777777] bg-white'}`}>
                                 <div className="flex items-center justify-center gap-1">
-                                    {item.path === location.pathname && <img src={item.iconwhite} width="18" height="18" alt={item.icon} /> || <img src={item.icon} width="18" height="18" alt={item.icon} /> }
+                                    {item.path === location.pathname ? <img src={item.iconwhite} width="18" height="18" alt={item.icon} /> : <img src={item.icon} width="18" height="18" alt={item.icon} /> }
                                     {item.label}
                                 </div>
                             </button>
