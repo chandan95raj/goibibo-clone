@@ -69,7 +69,10 @@ return(
                 <div>
                     <Menu>
                     <Menu.Button>
-                    <button  onMouseOver={()=>setLoginDropdown('block')} className="border border-[#3B77DC] py-1.5 px-2 font-semibold rounded-lg">
+                    <button  
+                        onMouseOver={()=>setLoginDropdown('block')} 
+                        className="border border-[#3B77DC] py-1.5 px-2 font-semibold rounded-lg z-10"
+                    >
                         <div className="flex items-center justify-center gap-1.5">
                             <img src="/icons/user.png" width="28" height="28" alt="user" />
                             <p className="text-[11px] text-[#2276E3] mr-4">LOGIN / SIGNUP</p> 
@@ -78,7 +81,11 @@ return(
                     </button>
                     </Menu.Button>
                     <Menu.Item> 
-                        <div onMouseOver={()=>setLoginDropdown('block')} onMouseOut={()=>setLoginDropdown('none')} style={{display: loginDropdown, boxShadow:'rgb(0 0 0 / 50%) 0px 2px 7px 0px'}} className="absolute border mt-[10px] right-[40px] bg-white w-[250px] p-5 rounded-md">
+                        <div 
+                            onMouseOver={()=>setLoginDropdown('block')} onMouseOut={()=>setLoginDropdown('none')} 
+                            style={{display: loginDropdown, boxShadow:'rgb(0 0 0 / 50%) 0px 2px 7px 0px'}} 
+                            className="absolute border mt-[10px] right-[40px] bg-white w-[250px] p-5 rounded-md z-10"
+                        >
                             <div className="text-[30px] absolute top-[-10px] left-[45%] bg-white p-0 m-0">
                                 <img src="/icons/arrow-up-drop.png" width="18" height="18" alt="forex" />                                
                             </div>                             

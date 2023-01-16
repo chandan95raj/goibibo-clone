@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import {useState, useEffect} from 'react';
+import MyListbox from "./select";
 const Home = () =>{ 
     const [position, setPosition] = useState("static");
     const handleScroll = (event)=>{
@@ -129,30 +130,103 @@ return(
     </div>
 </div>
 <div className="w-full min-h-full bg-[#EEF2F8]">
-    <div className="bg-[#3B77DC]">
+    <div className="bg-[#3B77DC] h-[250px]">
         <div className="container mx-auto px-10 py-5">
-            <div className="text-center">
-                <h1 className="text-[22px] font-semibold text-white tracking-wide">Domestic and International Flights</h1>
-            </div>
-            <div className="bg-[#fff] rounded-[20px] my-5 p-5">
-                <div className="flex gap-5 text-[#777777] text-[16px] font-semibold">
-                    <div>
-                        <input type="radio" value="One-way" className="rounded-full" /> <span>One-way</span>
+                <div className="text-center">
+                    <h1 className="text-[22px] font-semibold text-white tracking-wide">Domestic and International Flights</h1>
+                </div>
+                <div className="bg-[#fff] rounded-[20px] my-5 p-5 drop-shadow-lg">
+                    <div className="flex gap-5 text-[#777777] text-[16px] font-semibold">
+                        <button className="bg-[#E8F3FF] px-4 py-1.5 rounded-full text-[#2274E0]">
+                            <input type="radio" checked value="One-way" /> <span className="ml-2">One-way</span>
+                        </button>
+                        <button className="px-4 py-1.5 rounded-full">
+                            <input type="radio" value="Round-trip" /> <span className="ml-2">Round-trip</span>
+                        </button>
+                        <button className="px-4 py-1.5 rounded-full">
+                            <input type="radio" value="Multi-city" /> <span className="ml-2">Multi-city</span>
+                        </button>
                     </div>
-                    <div>
-                        <input type="radio" value="Round-trip" className="rounded-full" /> <span>Round-trip</span>
+                    <div className="py-5 flex gap-2 ">
+                        <div className="w-[250px] ">
+                            <fieldset className="border-[2.5px] p-5 rounded-lg hover:border-[#777777]">
+                                <legend className="bg-[#fff] p-1">From</legend>
+                                    <MyListbox />
+                            </fieldset>
+                        </div>
+                        <div className="w-[250px] relative">
+                            <fieldset className="border-[2.5px] p-5 rounded-lg hover:border-[#777777]">
+                                <legend className="bg-[#fff] p-1">To</legend>
+                                    <MyListbox />
+                            </fieldset>
+                        </div>
+                        <div className="absolute left-[250px] top-[110px] ">
+                            <button className="items-center flex justify-center w-[38px] h-[38px] bg-[#ffff] rounded-lg drop-shadow-md p-2">
+                                <img src="svg/swap.svg" alt="swap" />
+                            </button>
+                        </div>
+                        <div className="w-[150px] ">
+                            <fieldset className="border-[2.5px] p-3 rounded-lg hover:border-[#777777]">
+                                <legend className="bg-[#fff] p-1">Departure</legend>
+                                    <p>5 Feb'23</p>
+                                    <p className="text-[10px] ">Sunday</p>
+                            </fieldset>
+                        </div>
+                        <div className="w-[150px] ">
+                            <fieldset className="border-[2.5px] p-1 rounded-lg hover:border-[#777777]">
+                                <legend className="bg-[#fff] p-1">Return</legend>
+                                    <p className="text-[12px] ">click to add a return flight for better discounts</p>
+                            </fieldset>
+                        </div>
+                        <div className="w-[350px] ">
+                            <fieldset className="border-[2.5px] p-3 rounded-lg hover:border-[#777777]">
+                                <legend className="bg-[#fff] p-1">Travellers & Class</legend>
+                                    <p>1 Adult</p>
+                                    <p className="text-[10px] ">Economy</p>
+                            </fieldset>
+                        </div>
                     </div>
-                    <div>
-                        <input type="radio" value="Multi-city" className="rounded-full" /> <span>Multi-city</span>
+                    <div className="flex gap-0.5 items-center text-[#777777] text-[12px] mb-10" style={{fontFamily:"'Helvetica Neue',sans-serif"}}>
+                        <div className="w-[70px]">
+                            <p>Select A Fare Type:</p>
+                        </div>
+                        <button className="bg-[#E8F3FF] p-4 rounded-l-lg text-[#2274E0]">
+                            <input type="radio" checked value="regular" /> <span>Regular</span>
+                        </button>
+                        <button className="bg-[#F2F2F2] p-4 ">
+                            <input type="radio" value="armed-forces"/> <span>Armed Forces</span>
+                        </button>
+                        <button className="bg-[#F2F2F2] p-4 ">
+                            <input type="radio" value="senior-citizen" /> <span>Senior Citizen</span>
+                        </button>
+                        <button className="bg-[#F2F2F2] p-4 ">
+                            <input type="radio" value="student" /> <span>Student</span>
+                        </button>
+                        <button className="bg-[#F2F2F2] p-4 ">
+                            <input type="radio" value="doctor-nurses" /> <span>Doctors and Nurses</span>
+                        </button>
+                        <button className="bg-[#F2F2F2] p-4 rounded-r-lg">
+                            <input type="radio" value="extra seat" /> <span>Extra Seat</span>
+                        </button>
+                        <div className="w-[70px] border-l mx-5 pl-1">
+                            <p>Recent Searches:</p>
+                        </div>
+                        <button className="bg-[#F2F2F2] p-4 ">
+                            <input type="radio" value="doctor-nurses" /> <span>Doctors and Nurses</span>
+                        </button>
+                        <button className="bg-[#F2F2F2] p-4 rounded-r-lg">
+                            <input type="radio" value="extra seat" /> <span>Extra Seat</span>
+                        </button>
+                    </div>
+                    <div className="absolute left-[40%] mt-[-10px]">
+                        <button 
+                            className="bg-[#EB6125] text-[#fff] font-semibold rounded-full text-[22px] px-12 py-3.5"
+                            style={{fontFamily:"'Helvetica Neue',sans-serif"}}
+                        >
+                            SEARCH FLIGHTS
+                        </button>
                     </div>
                 </div>
-            <div>
-                <fieldset>
-                    <legend>chandan</legend>
-                    <p>wap institute</p>
-                </fieldset>
-            </div>
-            </div>
         </div>
     </div>
 </div>
