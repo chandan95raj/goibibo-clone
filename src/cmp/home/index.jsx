@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import {useState, useEffect} from 'react';
 import MyListbox from "./select";
+import { DatePicker } from 'antd';
+
 const Home = () =>{ 
     const [position, setPosition] = useState("static");
     const handleScroll = (event)=>{
@@ -12,6 +14,10 @@ const Home = () =>{
         window.addEventListener('scroll', handleScroll);
         return ()=>window.removeEventListener('scroll', handleScroll);
     },[]);
+
+    const onChange = (date, dateString) => {
+        console.log(date, dateString);
+      };
 return(
 <>
 <div className="md:hidden sm:block w-full h-[330px] ">
@@ -129,7 +135,8 @@ return(
         </div>
     </div>
 </div>
-<div className="w-full min-h-full bg-[#EEF2F8]">
+<div className="bg-[#EEF2F8]">
+<div className="w-full min-h-full h-[450px] ">
     <div className="bg-[#3B77DC] h-[250px]">
         <div className="container mx-auto px-10 py-5">
                 <div className="text-center">
@@ -151,39 +158,48 @@ return(
                         <div className="w-[250px] ">
                             <fieldset className="border-[2.5px] p-5 rounded-lg hover:border-[#777777]">
                                 <legend className="bg-[#fff] p-1">From</legend>
+                                <div>
                                     <MyListbox />
+                                </div>
                             </fieldset>
                         </div>
                         <div className="w-[250px] relative">
                             <fieldset className="border-[2.5px] p-5 rounded-lg hover:border-[#777777]">
                                 <legend className="bg-[#fff] p-1">To</legend>
-                                    <MyListbox />
+                                    <div>
+                                        <MyListbox />
+                                    </div>
                             </fieldset>
                         </div>
-                        <div className="absolute left-[250px] top-[110px] ">
+                        <div className="absolute left-[245px] top-[110px] ">
                             <button className="items-center flex justify-center w-[38px] h-[38px] bg-[#ffff] rounded-lg drop-shadow-md p-2">
                                 <img src="svg/swap.svg" alt="swap" />
                             </button>
                         </div>
-                        <div className="w-[150px] ">
-                            <fieldset className="border-[2.5px] p-3 rounded-lg hover:border-[#777777]">
-                                <legend className="bg-[#fff] p-1">Departure</legend>
-                                    <p>5 Feb'23</p>
-                                    <p className="text-[10px] ">Sunday</p>
-                            </fieldset>
+                        <div>
+                            <button className="w-[150px] text-left">
+                                <fieldset className="border-[2.5px] p-4 rounded-lg hover:border-[#777777]">
+                                    <legend className="bg-[#fff] p-1">Departure</legend>
+                                        <DatePicker onChange={onChange} />
+                                </fieldset>
+                            </button>
                         </div>
-                        <div className="w-[150px] ">
-                            <fieldset className="border-[2.5px] p-1 rounded-lg hover:border-[#777777]">
-                                <legend className="bg-[#fff] p-1">Return</legend>
-                                    <p className="text-[12px] ">click to add a return flight for better discounts</p>
-                            </fieldset>
+                        <div>
+                            <button className="w-[150px] text-left">
+                                <fieldset className="border-[2.5px] p-1 rounded-lg hover:border-[#777777]">
+                                    <legend className="bg-[#fff] p-1">Return</legend>
+                                        <p className="text-[12px] ">click to add a return flight for better discounts</p>
+                                </fieldset>
+                            </button>
                         </div>
-                        <div className="w-[350px] ">
-                            <fieldset className="border-[2.5px] p-3 rounded-lg hover:border-[#777777]">
-                                <legend className="bg-[#fff] p-1">Travellers & Class</legend>
-                                    <p>1 Adult</p>
-                                    <p className="text-[10px] ">Economy</p>
-                            </fieldset>
+                        <div>
+                            <button className="w-[350px] text-left">
+                                <fieldset className="border-[2.5px] p-2.5 rounded-lg hover:border-[#777777]">
+                                    <legend className="bg-[#fff] p-1">Travellers & Class</legend>
+                                        <p>1 Adult</p>
+                                        <p className="text-[11px] ">Economy</p>
+                                </fieldset>
+                            </button>
                         </div>
                     </div>
                     <div className="flex gap-0.5 items-center text-[#777777] text-[12px] mb-10" style={{fontFamily:"'Helvetica Neue',sans-serif"}}>
@@ -229,6 +245,36 @@ return(
                 </div>
         </div>
     </div>
+</div>
+<div>
+    <div className="container mx-auto px-10 py-5 ">
+        <div className="bg-[#fff] rounded-[20px] p-5 drop-shadow-lg">
+            <div>
+                <p className="text-center text-[#141823] text-[22px] font-semibold">Offers For You</p>
+            </div>
+            <div className="flex gap-4 py-5">
+                <button className="bg-[#E8F3FF] px-4 py-1.5 rounded-full text-[#2274E0] font-semibold ">All</button>
+                <button className="px-4 py-1.5 text-[#777777] font-semibold hover:text-[#000] ">Bank Offers</button>
+                <button className="px-4 py-1.5 text-[#777777] font-semibold hover:text-[#000] ">Flights</button>
+                <button className="px-4 py-1.5 text-[#777777] font-semibold hover:text-[#000] ">Hotels</button>
+                <button className="px-4 py-1.5 text-[#777777] font-semibold hover:text-[#000] ">Cabs</button>
+                <button className="px-4 py-1.5 text-[#777777] font-semibold hover:text-[#000] ">Bus</button>
+                <button className="px-4 py-1.5 text-[#777777] font-semibold hover:text-[#000] ">Trains</button>
+            </div>
+            <div>
+                <div className="border rounded-[10px] flex gap-5 w-[50%] p-4">
+                    <div>
+                        <img src="/travel-sale.jpg" width="135" height="135" alt="travel-sale" className="rounded-[10px]" />
+                    </div>
+                    <div>
+                        <button className=" py-1.5 text-[#777777] font-semibold hover:text-[#000] ">Hotels</button>
+                        <p className="text-[18px] text-[#000] font-semibold">Get Up To 35% OFF on all Hotel Bookings !</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </div>
 </>
 ); 

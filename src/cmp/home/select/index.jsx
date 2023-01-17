@@ -1,5 +1,5 @@
-import { useState } from 'react'
-import { Listbox } from '@headlessui/react'
+import { useState } from 'react';
+import { Listbox } from '@headlessui/react';
 
 const people = [
   { id: 1, name: 'Patna', unavailable: false },
